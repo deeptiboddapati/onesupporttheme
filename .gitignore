@@ -45,3 +45,7 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+*.png
+js/jquery-ui-1.11.4/*
+*.map
+*.css

@@ -1,0 +1,248 @@
+/*
+ Theme Name:   Onesupport
+ Theme URI:    Deeptiboddapati.com
+ Description:  Custom Theme For Onesupport.com
+ Author:       Deepti Boddapati
+ Author URI:   http://Deeptiboddapati.com
+ Template:     quark
+ Version:      1.0.0
+ License:      GNU General Public License v2 or later
+ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+ Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
+ Text Domain:  quark-child
+*/
+
+
+
+// Color Variables //
+
+$lighter_navy_blue: #34495e;
+$white: #fff;
+$light_turquoise_green: #1abc9c;
+$medium_grey: #bdc3c7;
+$darker_turquoise_green: #16a085;
+$light_green: #2ecc71;
+$grass_green: #27ae60;
+$dark_light_blue: #3498db;
+$light_blue: #2980b9;
+$faded_purple: #9b59b6;
+$brighter_purple: #8e44ad;
+$dark_navy_blue: #22313f;
+$corn_yellow: #f1c40f;
+$tumeric_yellow: #f39c12;
+$orange_yellow: #e67e22;
+$orange: #d35400;
+$coral: #e74c3c;
+$red_coral: #c0392b;
+$light_grey: #ecf0f1;
+$pewter: #95a5a6;
+$dark_grey: #7f8c8d;
+$black:#000;
+@import url(https://fonts.googleapis.com/css?family=Lato:400,100,900italic,900,700italic,700,400italic,300italic,300,100italic);
+// Colors Extends //
+
+//Change these first!
+$base_text_color:$black;
+$base_link_color:$light_blue;
+$base_background_color: $white;
+
+$base_default_button_background:$orange;
+$base_default_button_text_color:$white;
+$base_default_button_active_color:$tumeric_yellow;
+
+
+%base_text_background{
+	background-color: $base_background_color;
+	color:$base_text_color;
+	h1,h2,h3,h4{
+		color:$base_text_color;
+	}
+	p, li{
+		color:$base_text_color;
+	}
+	a{
+		color:$base_link_color;
+	}
+	a:active,a:hover,a:focus{
+		color:$base_text_color;
+	}
+
+}
+
+
+
+%branding{
+	color: $orange;
+	background-color: $white;
+	border:none;
+}
+
+%base_button_colors { //colors for basic button
+	color: $base_default_button_text_color;
+	background-color: $base_default_button_background;
+	border:none;
+}
+
+%base_button_colors_active_colors{ //colors for basic button when active
+	background-color: $base_default_button_active_color;
+	border:none;
+	color: $base_default_button_text_color;
+}
+
+%button_default_and_active_selectors{ //put together colors and selectors for button 
+	@extend %base_button_colors;
+	&:focus,&:active,&.active,&:hover {
+		@extend %base_button_colors_active_colors;
+		background-image: none;
+	}
+}
+
+%button_default_full_colors_selectors{ //full styles of buttons 
+	@extend %button_default_and_active_selectors;
+	&.disabled {
+		@extend %button_default_and_active_selectors;
+	}
+	.badge {
+		@extend %base_button_colors;
+	}
+
+}
+
+%btn_disabled_base{ //button disabled TODO dim these colors!
+@extend %button_default_and_active_selectors;
+}
+
+
+%orange_highlight_button{
+	color: $base_default_button_text_color;
+	background-color: $base_default_button_background;
+	border:none;
+}
+
+%orange_highlight_button_active{
+	color: $base_default_button_text_color;
+	background-color: $base_default_button_background;
+	border:none;
+}
+
+%orange_button_default_and_active_selectors{ //put together colors and selectors for button 
+	@extend %orange_highlight_button;
+	&:focus,&:active,&.active,&:hover {
+		@extend %orange_highlight_button_active;
+		background-image: none;
+	}
+}
+
+// Typography Variables //
+$main_font: 'Lato';
+$large:50px; //used for h1 in site header.
+$smalllarge:40px;
+$small: 18px; //used for Nav menu
+$xsmall: 16px; //used for text
+$medium: 24px; //used for buttons and h3 headings 
+
+%bold_font{
+	font-family: $main_font;
+	font-weight: 700;
+}
+%main_font{
+	font-family: $main_font;
+	font-weight: 400;
+}
+%font_size_large{
+	font-size: $large;
+}
+%font_size_second_largest{
+	font-size: $smalllarge;
+}
+%font_size_medium{
+	font-size: $medium;
+}
+%font_size_small{
+	font-size: $small;
+}
+%font_size_xsmall{
+	font-size: $xsmall;
+}
+// Typography Extends //
+%base_fonts_and_sizes{
+	@extend %main_font;
+	@extend %font_size_xsmall;
+	h1{
+		@extend %bold_font;
+		@extend %font_size_large;
+	}
+	h2{
+		@extend %bold_font;
+		@extend %font_size_second_largest;
+	}
+	h3{
+		@extend %bold_font;
+		@extend %font_size_medium;
+	}
+	h4{
+		@extend %bold_font;
+		@extend %font_size_small;
+	}
+	p{
+		@extend %main_font;
+		@extend %font_size_xsmall;
+	}
+}
+
+@mixin highlightextcolor($maintextcolor){
+	color:$lighter_navy_blue;
+	h1, h2, h3{
+		color:$maintextcolor;
+	}
+	h4,h5,p{
+		color:$lighter_navy_blue;
+	}
+	@extend %base_fonts_and_sizes;
+}
+
+
+/*Body Styles */
+body{
+	@extend %base_text_background;
+	@extend %base_fonts_and_sizes;
+}
+
+.banner{
+	@include highlightextcolor($tumeric_yellow);
+
+}
+.main-navigation{
+	margin-top: 2%;
+}
+/*Button Styles */
+.btn-primary, .btn-default{
+	@extend %button_default_full_colors_selectors;
+}
+
+.btn-primary[disabled],.btn-default[disabled]{
+	@extend %btn_disabled_base;
+}
+
+.open .dropdown-toggle .btn-default { //dropdown toggle styles
+	@extend %button_default_and_active_selectors;
+	background-image: none;
+}
+
+fieldset[disabled] .btn-default { //fieldset disabled styles
+	@extend %btn_disabled_base;
+}
+
+.btn-orange{
+	@extend %orange_button_default_and_active_selectors;
+}
+
+.support{
+	color:$tumeric_yellow;
+}
+.protect{
+	color:$darker_turquoise_green
+}
+.security{
+color:$red_coral
+}
