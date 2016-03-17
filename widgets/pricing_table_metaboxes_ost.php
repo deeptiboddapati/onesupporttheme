@@ -1,4 +1,47 @@
 <?php
+if( function_exists('acf_add_local_field_group') ):
+
+acf_add_local_field_group(array (
+	'key' => 'group_56ea5c92b342f',
+	'title' => 'Oembed',
+	'fields' => array (
+		array (
+			'key' => 'field_56ea5cdc92e36',
+			'label' => 'Video Link',
+			'name' => 'video_link',
+			'type' => 'oembed',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array (
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'width' => 600,
+			'height' => 6000,
+		),
+	),
+	'location' => array (
+		array (
+			array (
+				'param' => 'widget',
+				'operator' => '==',
+				'value' => 'acf_widget_ost_video_embed_widget',
+			),
+		),
+	),
+	'menu_order' => 0,
+	'position' => 'normal',
+	'style' => 'default',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+	'active' => 1,
+	'description' => '',
+));
+
+endif;
 
 if( function_exists('acf_add_local_field_group') ):
 

@@ -49,7 +49,7 @@ function wrapit_ost($tag=NULL,$content=NULL, $classes=NULL, $ids=NULL){
 	return $output;
 }
 
-require('PricingTable/PricingTable.php');
+require('widgets/registerwidgetsfields.php');
 
 
 

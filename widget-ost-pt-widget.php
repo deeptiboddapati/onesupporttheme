@@ -1,2 +1,2 @@
 <?php
-require('PricingTable/pricingtable_templatepart_ost.php');
+require('widgets/pricingtable_templatepart_ost.php');
