@@ -49,30 +49,9 @@ function wrapit_ost($tag=NULL,$content=NULL, $classes=NULL, $ids=NULL){
 	return $output;
 }
 
-require('PricingTable/PricingTable.php');
+require('widgets/registerwidgetsfields.php');
 
 
-add_filter( 'acfw_include_widgets', 'include_oembed_widget_ost' );
 
-function include_oembed_widget_ost(){
-
-	$oembed_acfw_widgets_ost = array(
-		array(
-			'title' => 'OneSupport Video Embed',
-			'description' => 'Display a Video',
-			'slug' => 'ost-video-embed-widget',
-			'id' => 'Ost_Video_Embed_Widget',
-		),
-			array(
-			'title' => 'OneSupport Pricing Table',
-			'description' => 'Display a OneSupport Product Features Table Anywhere!',
-			'slug' => 'ost-pt-widget',
-			'id' => 'Ost_PT_Widget',
-		)
-	);
-	
-	return $oembed_acfw_widgets_ost;
-	
-}
 
 ?>
