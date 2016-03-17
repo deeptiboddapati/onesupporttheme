@@ -134,34 +134,6 @@ acf_add_local_field_group(array (
 	'title' => 'Product Table',
 	'fields' => array (
 		array (
-			'key' => 'field_56e695c046dac',
-			'label' => 'Name',
-			'name' => 'name',
-			'type' => 'select',
-			'instructions' => '',
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array (
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'choices' => array (
-				'onesupport' => 'OneSupport',
-				'onesecurity' => 'OneSecurity',
-				'oneprotect' => 'OneProtect',
-			),
-			'default_value' => array (
-			),
-			'allow_null' => 0,
-			'multiple' => 0,
-			'ui' => 0,
-			'ajax' => 0,
-			'placeholder' => '',
-			'disabled' => 0,
-			'readonly' => 0,
-		),
-		array (
 			'key' => 'field_56ea28414e27a',
 			'label' => 'Product Name',
 			'name' => 'product_name',

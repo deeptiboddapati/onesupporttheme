@@ -135,11 +135,11 @@ $base_default_button_active_color:$tumeric_yellow;
 
 // Typography Variables //
 $main_font: 'Lato';
-$large:50px; //used for h1 in site header.
-$smalllarge:40px;
-$small: 18px; //used for Nav menu
-$xsmall: 16px; //used for text
-$medium: 24px; //used for buttons and h3 headings 
+$large:5em; //used for h1 in site header.
+$smalllarge:4em;
+$small: 1.8em; //used for Nav menu
+$xsmall: 1.6em; //used for text
+$medium: 2.4em; //used for buttons and h3 headings 
 
 %bold_font{
 	font-family: $main_font;
@@ -164,6 +164,7 @@ $medium: 24px; //used for buttons and h3 headings
 %font_size_xsmall{
 	font-size: $xsmall;
 }
+
 // Typography Extends //
 %base_fonts_and_sizes{
 	@extend %main_font;
@@ -200,17 +201,62 @@ $medium: 24px; //used for buttons and h3 headings
 	}
 	@extend %base_fonts_and_sizes;
 }
+$large: 1100px;
+$med-large: 980px;
+$small: 900px;
+$xsmall: 800px;
+$mobile: 650px;
+$smobile:520px;
+$xsmobile: 320px;
 
+@mixin changeems($fontsize,$h1size, $h2size,$h3size,$h4size,$psize){
+font-size: $fontsize;
+h1{
+	font-size: $h1size;
+}
+h2{
+	font-size: $h2size;
+}
+h3{
+	font-size: $h3size;
+}
+h4{
+	font-size: $h4size;
+}
+p{
+	font-size: $psize;
+}
 
+}
 /*Body Styles */
+
 body{
+	@extend %main_font;
+
+	@media only screen and (min-width: $xsmall){
+	.col{
+		@include changeems(11px,5em,3em,2em,1.5em,1em);
+	}
+	}
+	@media only screen and (min-width: $med-large){
+	.col{
+		@include changeems(13px,5em,3em,2em,1.5em,1em);
+	}
+	}
+	/*
+	.site-content{
+		font-size: 10px;
+	}
 	@extend %base_text_background;
 	@extend %base_fonts_and_sizes;
+	*/
 }
 
 .banner{
 	@include highlightextcolor($tumeric_yellow);
-
+	@media only screen and (min-width: $xsmobile){
+		@include changeems(15px,5em,4em,3em,2em,1em);
+}
 }
 .main-navigation{
 	margin-top: 2%;
@@ -245,4 +291,19 @@ fieldset[disabled] .btn-default { //fieldset disabled styles
 }
 .security{
 color:$red_coral
+}
+
+#maincontentcontainer .home-sidebar {
+	.widget{
+		border:none;
+	}
+	
+	@media only screen and (max-width: $xsmall){
+		@include changeems(8px,5em,5em,3em,3em,2em);
+		.grid_4_of_12{
+			display: block;
+			width:100%;
+		}
+		
+}
 }
