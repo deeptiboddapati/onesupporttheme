@@ -255,7 +255,7 @@ body{
 .banner{
 	@include highlightextcolor($tumeric_yellow);
 	@media only screen and (min-width: $xsmobile){
-		@include changeems(15px,5em,4em,3em,2em,1em);
+		@include changeems(10px,5em,4em,3em,2em,1em);
 }
 }
 .main-navigation{
@@ -306,4 +306,30 @@ color:$red_coral
 		}
 		
 }
+}
+
+	.grid_1_of_12,
+	.grid_2_of_12,
+	.grid_3_of_12,
+	.grid_4_of_12,
+	.grid_5_of_12,
+	.grid_6_of_12,
+	.grid_7_of_12,
+	.grid_8_of_12,
+	.grid_9_of_12,
+	.grid_10_of_12,
+	.grid_11_of_12,
+	.grid_12_of_12 {
+		width: 100%!important; 
+	}
+	.col {
+		margin: 0!important;
+	}
+	.main-small-navigation .nav-menu, .nav-menu ul {
+		padding: 0!important;
+	}
+	.main-small-navigation .nav-menu ul {
+		padding-left: 16px;
+		padding-left: 1rem;
+	}
 }
