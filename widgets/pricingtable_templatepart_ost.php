@@ -22,7 +22,9 @@ $output = "<h2><span class='security'>One</span>Security</h2>";
 else{
 	$output = wrapit_ost('h2',$choice);
 }
+
 echo $output;
+echo woocommerce_template_single_price();
 	?>
  
     
@@ -34,7 +36,7 @@ if( have_rows('features') ):
  	// loop through the rows of data
  	$featuresoutput = '';
     while ( have_rows('features') ) : the_row();
-
+        
         // display a sub field value
         $heading= get_sub_field('section_heading');
         $heading = wrapit_ost('h3',$heading);
@@ -43,13 +45,13 @@ if( have_rows('features') ):
         $featuresoutput .=$heading.$explanation;
     endwhile;
     echo wrapit_ost('div',$featuresoutput,array('accordion'),NULL);
-
+    
 else :
 
     // no rows found
 
 endif;
-
+echo woocommerce_template_single_add_to_cart();
 ?>
 
     

@@ -28,9 +28,9 @@ if ( empty( $woocommerce_loop['loop'] ) ) {
 
 // Store column count for displaying the grid
 if ( empty( $woocommerce_loop['columns'] ) ) {
-	$woocommerce_loop['columns'] = apply_filters( 'loop_shop_columns', 1 );
+	$woocommerce_loop['columns'] = apply_filters( 'loop_shop_columns', 4 );
 }
-
+print_r($woocommerce_loop);
 // Ensure visibility
 if ( ! $product || ! $product->is_visible() ) {
 	return;
@@ -39,12 +39,10 @@ if ( ! $product || ! $product->is_visible() ) {
 // Increase loop count
 $woocommerce_loop['loop']++;
 
-// Extra post classes
-$classes = array();
-$classes = 'first';
-?>
-<li <?php post_class( $classes ); ?>>
 
+?>
+
+<div class ="col grid_<?php echo $woocommerce_loop['columns'] ?>_of_12">
 	<?php
 	/**
 	 * woocommerce_before_shop_loop_item hook.
@@ -85,4 +83,4 @@ $classes = 'first';
 	do_action( 'woocommerce_after_shop_loop_item' );
 	?>
 
-</li>
+</div>

@@ -133,6 +133,31 @@ $base_default_button_active_color:$tumeric_yellow;
 	}
 }
 
+
+@mixin button($btn_background: $light_blue ,$btn_second_background: $lighter_navy_blue ,
+	$btn_txt_color: $white ,
+	$btn_hover_color:  $lighter_navy_blue){
+	 
+	background: $btn_background;
+	background-image: linear-gradient(to bottom, $btn_background, $btn_second_background);
+	border-radius: 4px;
+	font-family: $main_font;
+	color: $btn_txt_color;
+	font-size: 1em;
+	padding: 10px 20px;
+	text-decoration: none;
+	border-color: $white;
+	border-width: 0;
+	&:hover {
+		background: $btn_hover_color;
+		background-image: linear-gradient(to bottom, $btn_hover_color, $btn_background);
+		text-decoration: none;
+	}
+
+
+}
+
+
 // Typography Variables //
 $main_font: 'Lato';
 $large:5em; //used for h1 in site header.
@@ -233,6 +258,10 @@ p{
 body{
 	@extend %main_font;
 
+	h1,h2,h3,h4,h5{
+		@extend %main_font;
+	}
+
 	@media only screen and (min-width: $xsmall){
 	.col{
 		@include changeems(11px,5em,3em,2em,1.5em,1em);
@@ -296,6 +325,11 @@ color:$red_coral
 #maincontentcontainer .home-sidebar {
 	.widget{
 		border:none;
+		background-color: $white;
+		button{
+			@include button;
+		}
+		
 	}
 	
 	@media only screen and (max-width: $xsmall){
@@ -308,6 +342,7 @@ color:$red_coral
 }
 }
 
+@media only screen and (max-width: 650px) {
 	.grid_1_of_12,
 	.grid_2_of_12,
 	.grid_3_of_12,
@@ -332,4 +367,11 @@ color:$red_coral
 		padding-left: 16px;
 		padding-left: 1rem;
 	}
+}
+
+
+/*Woocommerce price output style */
+.amount{
+	font-size: 2em;
+	font-family: $main_font;
 }

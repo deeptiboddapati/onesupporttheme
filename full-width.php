@@ -17,18 +17,19 @@ get_header(); ?>
 		<?php if ( have_posts() ) : ?>
 
 		<?php while ( have_posts() ) : the_post(); ?>
-
+		<h1 class="entry-title"><?php the_title(); ?></h1>
 		<?php
 		
 		$fieldsfirst = get_field("custom_content_first");
 
 		if ($fieldsfirst) {
 					# code...
+
 			get_template_part('content','imagetext');
-			get_template_part( 'content', 'page' ); 
+			get_template_part( 'content', 'ostpage' ); 
 		}
 		else{
-			get_template_part( 'content', 'page' ); 
+			get_template_part( 'content', 'ostpage' ); 
 			get_template_part('content','imagetext');
 		}
 		?>
