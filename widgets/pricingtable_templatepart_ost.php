@@ -23,8 +23,14 @@ else{
 	$output = wrapit_ost('h2',$choice);
 }
 
+
+//print_r($post_object);
+//print_r(get_post_meta(get_the_id()));
+
+
 echo $output;
-echo woocommerce_template_single_price();
+woocommerce_template_loop_price();
+
 	?>
  
     
