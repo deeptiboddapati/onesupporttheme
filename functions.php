@@ -2,7 +2,7 @@
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
 function theme_enqueue_styles() {
 	wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
-	wp_enqueue_style('childstyle',get_stylesheet_directory() );
+	
 	wp_enqueue_script( 'jquery', false, array(), false, true );
 	wp_register_script("jqueryui",trailingslashit( get_stylesheet_directory_uri() ).'libraries/jquery-ui/jquery-ui.js', array('jquery'),NULL, true );
 	wp_enqueue_script('jqueryui');
@@ -75,4 +75,24 @@ if(is_cart()){
 }
 
 add_action('wp','ost_wc_sub_cart_price');
+		remove_action( 'woocommerce_variable-subscription_add_to_cart', 'WC_Subscriptions::variable_subscription_add_to_cart', 30 );
+
+function ostvariable_sub(){
+	global $product;
+
+		// Enqueue variation scripts
+		wp_enqueue_script( 'wc-add-to-cart-variation' );
+
+		// Get Available variations?
+		$get_variations = sizeof( $product->get_children() ) <= apply_filters( 'woocommerce_ajax_variation_threshold', 30, $product );
+
+		// Load the template
+		wc_get_template( 'single-product/add-to-cart/variable-subscription.php', array(
+			'available_variations' => $get_variations ? $product->get_available_variations() : false,
+			'attributes'           => $product->get_variation_attributes(),
+			'selected_attributes'  => $product->get_variation_default_attributes(),
+		), '', plugin_dir_path( __FILE__ ) . 'templates/' );
+	}
+
+add_action('woocommerce_variable-subscription_add_to_cart','ostvariable_sub');
 ?>
