@@ -29,7 +29,8 @@ else{
 
 
 echo $output;
-woocommerce_template_loop_price();
+
+
 
 	?>
  
