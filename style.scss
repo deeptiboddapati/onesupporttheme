@@ -379,3 +379,13 @@ color:$red_coral
 .woocommerce-variation-price .price{
 	display: none;
 }
+
+.accordion{
+	h3:nth-of-type(2n) { 
+		background-color: $light_grey;
+		margin-bottom: 0;
+	}
+	div:nth-of-type(2n){
+		background-color: $light_grey; 
+	}
+}

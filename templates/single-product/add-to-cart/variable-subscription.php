@@ -36,7 +36,10 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 			<table class="variations" cellspacing="0">
 				
 				<tbody>
+
 					<?
+					//print_r($product->get_title());
+					//print_r($attributes);
 					echo "Monthly: ";
 woocommerce_template_loop_price();
  ?>
@@ -44,7 +47,7 @@ woocommerce_template_loop_price();
  --OR--
   <br />
  Yearly:
- <?php echo $attributes['OneSecurity']['1']; ?>
+ <?php echo $attributes[$product->get_title()]['1']; ?>
 <!-- for loop -->
 
 				<?php foreach ( $attributes as $attribute_name => $options ) : ?>

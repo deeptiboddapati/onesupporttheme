@@ -51,7 +51,7 @@ function wrapit_ost($tag=NULL,$content=NULL, $classes=NULL, $ids=NULL){
 }
 
 require('widgets/registerwidgetsfields.php');
-
+require('widgetmetaboxes.php');
 
 
 function ost_wc_subscriptions_custom_price_string( $pricestring ) {
@@ -75,7 +75,7 @@ if(is_cart()){
 }
 
 add_action('wp','ost_wc_sub_cart_price');
-		remove_action( 'woocommerce_variable-subscription_add_to_cart', 'WC_Subscriptions::variable_subscription_add_to_cart', 30 );
+remove_action( 'woocommerce_variable-subscription_add_to_cart', 'WC_Subscriptions::variable_subscription_add_to_cart', 30 );
 
 function ostvariable_sub(){
 	global $product;
