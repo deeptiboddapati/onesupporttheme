@@ -54,6 +54,8 @@ require('widgets/registerwidgetsfields.php');
 require('widgetmetaboxes.php');
 
 
+
+
 function ost_wc_subscriptions_custom_price_string( $pricestring ) {
 
 $sign_up = WC_Subscriptions_Product::get_sign_up_fee( get_the_id() );
@@ -95,4 +97,41 @@ function ostvariable_sub(){
 	}
 
 add_action('woocommerce_variable-subscription_add_to_cart','ostvariable_sub');
+
+function ost_widgets_init(){
+
+	register_sidebar( array(
+		'name' => esc_html__( 'First Pricing Table Widget Area', 'OST' ),
+		'id' => 'pricingtable1',
+		'description' => esc_html__( 'Displays a Pricing Table.', 'ost' ),
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget' => '</aside>',
+		'before_title' => '<h3 class="widget-title">',
+		'after_title' => '</h3>'
+	) );
+	register_sidebar( array(
+		'name' => esc_html__( 'Second Pricing Table Widget Area', 'OST' ),
+		'id' => 'pricingtable2',
+		'description' => esc_html__( 'Displays a Pricing Table.', 'ost' ),
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget' => '</aside>',
+		'before_title' => '<h3 class="widget-title">',
+		'after_title' => '</h3>'
+	) );
+	register_sidebar( array(
+		'name' => esc_html__( 'Third Pricing Table 1 Widget Area', 'OST' ),
+		'id' => 'pricingtable3',
+		'description' => esc_html__( 'Displays a Pricing Table.', 'ost' ),
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget' => '</aside>',
+		'before_title' => '<h3 class="widget-title">',
+		'after_title' => '</h3>'
+	) );
+
+
+
+}
+
+add_action( 'widgets_init', 'ost_widgets_init');
+
 ?>

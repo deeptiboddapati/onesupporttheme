@@ -32,5 +32,4 @@ get_header(); ?>
 
 	</div><!-- /#primary.site-content.row -->
 
-
 <?php get_footer(); ?>

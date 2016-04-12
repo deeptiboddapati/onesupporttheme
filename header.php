@@ -108,3 +108,10 @@
 
 	<div id="maincontentcontainer">
 		<?php	do_action( 'quark_before_woocommerce' ); ?>
+
+		<?php if ( is_active_sidebar( 'frontpagewidget' ) ) : ?>
+		
+	<ul id="sidebar">
+		<?php dynamic_sidebar( 'frontpagewidget' ); ?>
+	</ul>
+<?php endif; ?>
